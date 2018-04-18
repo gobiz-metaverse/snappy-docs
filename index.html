@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;http&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,10 +211,7 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="http">http</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -225,24 +222,54 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="kittens">Kittens</a>
+            <a href="#general-setting" class="toc-h1 toc-link" data-title="general-setting">General Setting</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="get-all-kittens">Get All Kittens</a>
-                  </li>
-                  <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="get-a-specific-kitten">Get a Specific Kitten</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="delete-a-specific-kitten">Delete a Specific Kitten</a>
+                    <a href="#environment" class="toc-h2 toc-link" data-title="environment">Environment</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#geos" class="toc-h1 toc-link" data-title="geos">Geos</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-provinces" class="toc-h2 toc-link" data-title="get-provinces">Get Provinces</a>
+                  </li>
+                  <li>
+                    <a href="#get-districts" class="toc-h2 toc-link" data-title="get-districts">Get Districts</a>
+                  </li>
+                  <li>
+                    <a href="#get-communes" class="toc-h2 toc-link" data-title="get-communes">Get Communes</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#businesses" class="toc-h1 toc-link" data-title="businesses">Businesses</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-businesses" class="toc-h2 toc-link" data-title="get-all-businesses">Get All Businesses</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-business" class="toc-h2 toc-link" data-title="get-a-specific-business">Get a Specific Business</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#trackings" class="toc-h1 toc-link" data-title="trackings">Trackings</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-services" class="toc-h2 toc-link" data-title="get-services">Get Services</a>
+                  </li>
+                  <li>
+                    <a href="#get-trackings" class="toc-h2 toc-link" data-title="get-trackings">Get Trackings</a>
+                  </li>
+                  <li>
+                    <a href="#create-tracking" class="toc-h2 toc-link" data-title="create-tracking">Create tracking</a>
+                  </li>
+              </ul>
           </li>
       </div>
         <ul class="toc-footer">
@@ -254,250 +281,881 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the Snappy API! You can use our API to access Snappy API endpoints, which can get information on various trackings, businesses and payments in our database.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+<p>We have language bindings in Http! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<h1 id='general-setting'>General Setting</h1><h2 id='environment'>Environment</h2>
+<ul>
+<li>Production base url: <strong>https://pages.fm/api/v1</strong></li>
+</ul>
 <h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p>Snappy uses <code>access_token</code> to allow access to the API. You can register a new Snappy&#39;s <code>access_token</code> by contact admin via hotline  02420.233.555 - 02421.233.555 (HN) and 0886.332.882 - 0886.334.884(HCM)</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>Snappy expects for the <code>access_token</code> to be included in almost API requests to the server as a param that looks like the following:</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
+<p><code>Authorization: access_token</code></p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>access_token</code> with your personal access_token.
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+<h1 id='geos'>Geos</h1><h2 id='get-provinces'>Get Provinces</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/geo/provinces</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Response</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hà Nội"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name_en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ha noi"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"701"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hồ Chí Minh"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name_en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ho chi minh"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"221"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bắc Giang"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name_en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bac giang"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"207"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bắc Kạn"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name_en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bac kan"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"821"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bạc Liêu"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name_en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bac lieu"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
+<p>This endpoint retrieves all provinces.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
+<p><code>GET /geo/provinces</code></p>
+<h2 id='get-districts'>Get Districts</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/geo/districts</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10101"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Quận Ba Đình"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name_en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ba dinh"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10129"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Huyện Ba Vì"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name_en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ba vi"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10155"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Quận Bắc Từ Liêm"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name_en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bac tu liem"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10113"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Quận Cầu Giấy"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name_en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cau giay"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10141"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Huyện Chương Mỹ"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name_en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chuong my"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all districts.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET /geo/districts</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Require</th>
+<th>Type</th>
 <th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
+<td>province_id</td>
 <td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>string</td>
+<td></td>
+<td>Province id of districts you want to retrieve. Get province id in api <a href="#get-provinces">GET /geo/provinces</a></td>
 </tr>
 </tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<h2 id='get-communes'>Get Communes</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/geo/communes</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010115"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phường Cống Vị"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name_en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cong vi"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010109"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phường Điện Biên"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name_en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dien bien"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010113"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phường Đội Cấn"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name_en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"doi can"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010119"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phường Giảng Võ"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name_en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"giang vo"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010111"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phường Kim Mã"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name_en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kim ma"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p>This endpoint retrieves all communes.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET /geo/communes</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Require</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>district_id</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+<td>District id of communes you want to retrieve. Get district id in api <a href="#get-districts">GET /geo/districts</a></td>
+</tr>
+</tbody></table>
+<h1 id='businesses'>Businesses</h1><h2 id='get-all-businesses'>Get All Businesses</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/snappy/users/me</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"businesses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Số 1 ABC"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"commune_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"district_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10101"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"full_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1 - Số 1 ABC, Quận Ba Đình, Hà Nội"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82019ce2-088d-4cb1-8e8a-c6255d12ce6c"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"is_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+84937123123"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"province_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"business_payments"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">63</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"inserted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-17T15:07:49"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_owner"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_payment_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14d4a1a1-ea42-4164-805d-e240f2561f71"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"owner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"packages"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="s2">"payment_methods"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0937123123"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"remaining_balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"total_balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"tracking_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unique_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S61"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-17T15:14:26"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user37@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fb_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14d4a1a1-ea42-4164-805d-e240f2561f71"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+84937123123"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"me"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"fb_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14d4a1a1-ea42-4164-805d-e240f2561f71"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14d4a1a1-ea42-4164-805d-e240f2561f71"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all businesses and basic user info.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET /snappy/users/me</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Require</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+<td>Your personal acess_token</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-specific-business'>Get a Specific Business</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/snappy/businesses/&lt;ID&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"business"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Số 1 ABC"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"commune_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"district_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10101"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"full_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1 - Số 1 ABC, Quận Ba Đình, Hà Nội"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82019ce2-088d-4cb1-8e8a-c6255d12ce6c"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"is_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+84937123123"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"province_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"business_payments"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"coupons"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">63</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"inserted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-17T15:07:49"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"is_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"is_owner"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_payment_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14d4a1a1-ea42-4164-805d-e240f2561f71"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"owner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"packages"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"payment_methods"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0937123123"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"remaining_balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tracking_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"unique_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S61"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-17T15:14:26"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific business.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET /snappy/businesses/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Require</th>
+<th>Type</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
+<td>access_token</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+<td>Your personal acess_token</td>
+</tr>
+<tr>
 <td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>true</td>
+<td>integer</td>
+<td></td>
+<td>The ID of the business to retrieve</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<h1 id='trackings'>Trackings</h1><h2 id='get-services'>Get Services</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/snappy/trackings/get_services</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
+    </span><span class="s2">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"expedited"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name_vi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chuyển phát nhanh"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"disabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"standard"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name_vi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tiêu chuẩn"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"same_day"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name_vi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trong ngày"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"disabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"next_day"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name_vi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ngày tiếp theo"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
+<p>This endpoint retrieves services.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET /snappy/trackings/get_services</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Require</th>
+<th>Type</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>sender_district_id</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+<td>Id of sender&#39;s district</td>
+</tr>
+<tr>
+<td>receiver_district_id</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+<td>Id of receiver&#39;s district</td>
+</tr>
+<tr>
+<td>receiver_commune_id</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+<td>Id of receiver&#39;s district</td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The Kittn API uses the following error codes:</p>
-
+<h2 id='get-trackings'>Get Trackings</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/snappy/trackings</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trackings_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"page_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trackings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"addition_services"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"balance_adjustment"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"business"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">63</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"fb_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+84937123123"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"business_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">63</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"fb_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14d4a1a1-ea42-4164-805d-e240f2561f71"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"current_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Đã khởi tạo"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"current_status_en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"request_received"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"custom_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S61180417003"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"customer_tracking_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"department"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127/19 Hoàng Hoa Thám, Phường 13, Tân Bình"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"district_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Quận Tân Bình"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0886.332.882"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"province_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hồ Chí Minh"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"second_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0886.334.884"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Số 1 ABC"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"commune_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"district_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10101"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"full_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1 - Số 1 ABC, Quận Ba Đình, Hà Nội"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82019ce2-088d-4cb1-8e8a-c6255d12ce6c"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+84937123123"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"province_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E80008124"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"inserted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-17T16:55:03"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last_update"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1 - Số 1 ABC, Quận Ba Đình, Hà Nội"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Khởi tạo vận đơn"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Đã khởi tạo"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#AD7E05"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-18T09:21:40"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"logs"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"package_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sp 1"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"selected"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sp 2"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="s2">"snippet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2 x 100g sp 1, 1 x 200g sp 2"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"total_weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"cod_service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">500000</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"cost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"is_save_log_cod"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"use_cod"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"insurance_cost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"is_allow_checking_good"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"is_allow_try_out"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"is_receiver_pay"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"is_save_log_insurance_cost"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"is_save_log_return"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"is_save_log_shipping_cost"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"is_save_log_shipping_cost_of_shop"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"expedited"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"name_vi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chuyển phát nhanh"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"shipping_cost"</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"shipping_cost_of_shop"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"short_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">812</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#AD7E05"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12 test"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"commune_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7010101"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"district_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"70101"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"full_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phường Tân Định, Quận 1, Hồ Chí Minh"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"095555555"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"province_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"701"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-18T09:21:40"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1 - Số 1 ABC, Quận Ba Đình, Hà Nội"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Khởi tạo vận đơn"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Đã khởi tạo"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"status_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#AD7E05"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-18T09:21:40"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all trackings into your business.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET /snappy/trackings</code></p>
+<h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Parameter</th>
+<th>Require</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
+<td>access_token</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+<td>Your personal acess_token</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>business_id</td>
+<td>true</td>
+<td>integer</td>
+<td></td>
+<td>Id one business in list businesses you get in api <a href="#get-all-businesses">GET /user/me</a></td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>page</td>
+<td>false</td>
+<td>integer</td>
+<td>1</td>
+<td>Page number</td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>start_date</td>
+<td>false</td>
+<td>integer</td>
+<td></td>
+<td>Start date <code>timestamp</code></td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td>end_date</td>
+<td>false</td>
+<td>integer</td>
+<td></td>
+<td>End date <code>timestamp</code></td>
 </tr>
 <tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+<td>is_sort_by_updated_at</td>
+<td>false</td>
+<td>boolean</td>
+<td>false</td>
+<td>If <code>true</code> trackings will sort by <code>updated_at</code> instead of default sort by <code>inserted_at</code></td>
 </tr>
 <tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
+<td>filter_by_status</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+<td>One or more status of trackings separate by <code>,</code></td>
 </tr>
 <tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
+<td>filter_inner_outer</td>
+<td>false</td>
+<td>integer</td>
+<td></td>
+<td><code>1</code> is inner, <code>2</code> is outer in same province and <code>3</code> is outer</td>
 </tr>
 <tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>creator_id</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+<td>id of creator <code>UUID</code></td>
 </tr>
 <tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+<td>keyword</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+<td>keyword for search by address, phone number, tracking id, ...</td>
+</tr>
+</tbody></table>
+<h2 id='create-tracking'>Create tracking</h2><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/snappy/trackings/create</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
+<blockquote>
+<p>Sample params</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ1aWQiOiIxNGQ0YTFhMS1lYTQyLTQxNjQtODA1ZC1lMjQwZjI1NjFmNzEiLCJpYXQiOj"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"business_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">63</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"business_address_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82019ce2-088d-4cb1-8e8a-c6255d12ce6c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"receiver_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"receiver_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0955555555"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"receiver_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12 test"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"receiver_province_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"701"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"receiver_district_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"70101"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"receiver_commune_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7010101"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sp 1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sp 2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"service_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"expedited"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cod"</span><span class="p">:</span><span class="w"> </span><span class="mi">500000</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Response if success</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vận đơn đã được khởi tạo thành công"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tracking"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"addition_services"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"balance_adjustment"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"business"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">63</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"fb_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+84937123123"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"business_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">63</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"fb_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14d4a1a1-ea42-4164-805d-e240f2561f71"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"current_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Đã khởi tạo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"current_status_en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"request_received"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"custom_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S61180418001"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_tracking_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"department"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127/19 Hoàng Hoa Thám, Phường 13, Tân Bình"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"district_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Quận Tân Bình"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0886.332.882"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"province_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hồ Chí Minh"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"second_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0886.334.884"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Số 1 ABC"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commune_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"district_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10101"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"full_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1 - Số 1 ABC, Quận Ba Đình, Hà Nội"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82019ce2-088d-4cb1-8e8a-c6255d12ce6c"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+84937123123"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"province_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E80008142"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"inserted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-18T15:42:56"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_update"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1 - Số 1 ABC, Quận Ba Đình, Hà Nội"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Khởi tạo vận đơn"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Đã khởi tạo"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#AD7E05"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-18T15:42:56"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"logs"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"package_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sp 1"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"snippet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2 x 100g sp 1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"total_weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"cod_service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">500000</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"cost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"is_save_log_cod"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"use_cod"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"insurance_cost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_allow_checking_good"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_allow_try_out"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_receiver_pay"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_save_log_insurance_cost"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_save_log_return"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_save_log_shipping_cost"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_save_log_shipping_cost_of_shop"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"expedited"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name_vi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chuyển phát nhanh"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"shipping_cost"</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"shipping_cost_of_shop"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"short_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">814</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#AD7E05"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12 test"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commune_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7010101"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"district_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"70101"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"full_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phường Tân Định, Quận 1, Hồ Chí Minh"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"095555555"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"province_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"701"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-18T15:42:56"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1 - Số 1 ABC, Quận Ba Đình, Hà Nội"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Khởi tạo vận đơn"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Đã khởi tạo"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#AD7E05"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-18T15:42:56"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint create a tracking into your business.</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>POST /snappy/trackings/create</code></p>
+<h3 id='query-parameters-5'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Require</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+<td>Your personal acess_token</td>
 </tr>
 <tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>business_id</td>
+<td>true</td>
+<td>integer</td>
+<td></td>
+<td>Id of a business in list businesses. Get in api <a href="#get-all-businesses">GET /user/me</a></td>
+</tr>
+<tr>
+<td>business_address_id</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+<td>Id <code>UUID</code> of one of business address. Get in api <a href="#get-a-specific-business">GET /businesses/<ID></a></td>
+</tr>
+<tr>
+<td>receiver_name</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+<td>Name of receiver</td>
+</tr>
+<tr>
+<td>receiver_phone_number</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+<td>Phone number of receiver</td>
+</tr>
+<tr>
+<td>receiver_address</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+<td>Address of receiver</td>
+</tr>
+<tr>
+<td>receiver_province_id</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+<td>Id of receiver&#39;s province. Get in api <a href="#get-provinces">GET /geo/provinces</a></td>
+</tr>
+<tr>
+<td>receiver_district_id</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+<td>Id of receiver&#39;s district. Get in api <a href="#get-districts">GET /geo/districts</a></td>
+</tr>
+<tr>
+<td>receiver_commune_id</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+<td>Id of receiver&#39;s commune. Get in api <a href="#get-communes">GET /geo/communes</a></td>
+</tr>
+<tr>
+<td>items</td>
+<td>true</td>
+<td>array</td>
+<td></td>
+<td>List of items in tracking package</td>
+</tr>
+<tr>
+<td>service_name</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+<td>Name of service. Get in api <a href="#get-services">GET /snappy/trackings/get_services</a></td>
+</tr>
+<tr>
+<td>cod</td>
+<td>true</td>
+<td>integer</td>
+<td></td>
+<td>Amount of cod or values of all items in package</td>
+</tr>
+</tbody></table>
+
+<p>Params <code>items</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Require</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+<td>Name of item or product</td>
+</tr>
+<tr>
+<td>weight</td>
+<td>true</td>
+<td>integer</td>
+<td></td>
+<td>Weight of item or product</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>true</td>
+<td>integer</td>
+<td></td>
+<td>Quantity of item or product</td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="http">http</a>
           </div>
       </div>
     </div>
