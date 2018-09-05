@@ -451,7 +451,7 @@ You must replace <code>access_token</code> with your personal access_token.
 <td>District id of communes you want to retrieve. Get district id in api <a href="#get-districts">GET /geo/districts</a></td>
 </tr>
 </tbody></table>
-<h1 id='businesses'>Businesses</h1><h2 id='get-all-businesses'>Get All Businesses</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/snappy/users/me</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h1 id='businesses'>Businesses</h1><h2 id='get-all-businesses'>Get All Businesses</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/snappy/users/me?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 <blockquote>
 <p>Response</p>
@@ -527,7 +527,7 @@ You must replace <code>access_token</code> with your personal access_token.
 <td>Your personal acess_token</td>
 </tr>
 </tbody></table>
-<h2 id='get-a-specific-business'>Get a Specific Business</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/snappy/businesses/&lt;ID&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h2 id='get-a-specific-business'>Get a Specific Business</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/snappy/businesses/&lt;ID&gt;?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 <blockquote>
 <p>Response</p>
@@ -666,7 +666,7 @@ You must replace <code>access_token</code> with your personal access_token.
 <td>Id of receiver&#39;s commune</td>
 </tr>
 </tbody></table>
-<h2 id='get-trackings'>Get Trackings</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/snappy/trackings</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h2 id='get-trackings'>Get Trackings</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/snappy/trackings?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 <blockquote>
 <p>Response</p>
@@ -876,7 +876,7 @@ You must replace <code>access_token</code> with your personal access_token.
 <td>keyword for search by address, phone number, tracking id, ...</td>
 </tr>
 </tbody></table>
-<h2 id='create-tracking'>Create tracking</h2><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/snappy/trackings/create</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h2 id='create-tracking'>Create tracking</h2><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/snappy/trackings/create?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 </code></pre>
 <blockquote>
