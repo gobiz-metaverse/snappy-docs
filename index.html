@@ -275,6 +275,9 @@
                   <li>
                     <a href="#tracking-status" class="toc-h2 toc-link" data-title="tracking-status">Tracking Status</a>
                   </li>
+                  <li>
+                    <a href="#tracking-print" class="toc-h2 toc-link" data-title="tracking-print">Tracking Print</a>
+                  </li>
               </ul>
           </li>
       </div>
@@ -1398,6 +1401,36 @@ You must replace <code>access_token</code> with your personal access_token.
 <td><code>Đã hủy</code></td>
 <td><code>#DB3E36</code></td>
 <td>Vn Name is <code>current_status</code> and Name is <code>current_status_en</code> of api <a href="#get-trackings">GET /snappy/trackings</a></td>
+</tr>
+</tbody></table>
+<h2 id='tracking-print'>Tracking Print</h2>
+<p>This is special part. With this api you must be redirect or open new tab in your browser and apply this link <code>https://snappy.vn/print/&lt;ids&gt;&amp;business_id=&lt;business_id&gt;&amp;access_token=&lt;access_token&gt;</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ids</td>
+<td>true</td>
+<td>string</td>
+<td>ids of trackings need to print separate by comma <code>,</code> eg. S20010048,S20009784,S20010275</td>
+</tr>
+<tr>
+<td>business_id</td>
+<td>true</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>access_token</td>
+<td>true</td>
+<td>string</td>
+<td></td>
 </tr>
 </tbody></table>
 
