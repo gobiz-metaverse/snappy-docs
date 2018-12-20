@@ -1445,7 +1445,7 @@ You must replace <code>access_token</code> with your personal access_token.
 </tr>
 </tbody></table>
 <h1 id='webhook'>Webhook</h1>
-<p>When tracking update status to another status, Snappy will send a POST request following the callback url created in api <a href="#create-webhook">POST /snappy/trackings/webhook</a>. Max retry of request to callback url is 10 times.</p>
+<p>When tracking update status to another status, Snappy will send a POST request following the callback url created in api <a href="#create-webhook">POST /snappy/trackings/webhook</a>. Max retry of the request with each tracking status to callback url is 10 times. List tracking status <a href="#tracking-status">Tracking Status</a></p>
 <h2 id='create-webhook'>Create Webhook</h2><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/snappy/trackings/webhook?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 <blockquote>
