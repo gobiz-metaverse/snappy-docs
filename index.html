@@ -273,6 +273,9 @@
                     <a href="#create-tracking" class="toc-h2 toc-link" data-title="create-tracking">Create tracking</a>
                   </li>
                   <li>
+                    <a href="#cancel-tracking" class="toc-h2 toc-link" data-title="cancel-tracking">Cancel tracking</a>
+                  </li>
+                  <li>
                     <a href="#tracking-status" class="toc-h2 toc-link" data-title="tracking-status">Tracking Status</a>
                   </li>
                   <li>
@@ -1338,6 +1341,180 @@ You must replace <code>access_token</code> with your personal access_token.
 <td>Quantity of item or product</td>
 </tr>
 </tbody></table>
+<h2 id='cancel-tracking'>Cancel tracking</h2><pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/snappy/trackings/cancel?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
+<blockquote>
+<p>Sample params</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ1aWQiOiIxNGQ0YTFhMS1lYTQyLTQxNjQtODA1ZC1lMjQwZjI1NjFmNzEiLCJpYXQiOj"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tracking_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S20010326"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lý do hủy vận đơn"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Response if success</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cập nhật trạng thái vận đơn thành công"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tracking"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"addition_services"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"balance_adjustment"</span><span class="p">:</span><span class="w"> </span><span class="mi">-20000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"business"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Snappy"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"fb_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hoàng Sơn"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+84999999999"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"business_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"fb_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user4"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+84904123123"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"132abd0a-73b0-4b22-9934-68bb6ef0df36"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"current_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Đã hủy"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"current_status_en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"canceled"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"custom_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S01181207001"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_tracking_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"department"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Số 33 Tô Vĩnh Diện"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"district_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Quận Thanh Xuân"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HN"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02420.233.555"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"province_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hà Nội"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"second_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02421.233.555"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Luffy"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commune_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010111"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"district_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10101"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"full_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC - Luffy Phường Kim Mã, Quận Ba Đình, Hà Nội"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11ac8617-a5fa-4f3a-a1ab-6e2de6c7c8cc"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+84999999999"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"province_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"full_pos_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S20010326"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"inserted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-07T12:16:26"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_update"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"last_updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T17:56:28"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asndaslnda"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Đã hủy"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#DB3E36"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T17:56:28"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"logs"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"package_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"retail_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"selected"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"snippet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2 x 2kg test"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"total_weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"cod_service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"cost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"is_save_log_cod"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"use_cod"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"insurance_cost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_allow_checking_good"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_allow_try_out"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_receiver_pay"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_save_log_insurance_cost"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_save_log_return"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_save_log_shipping_cost"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_save_log_shipping_cost_of_shop"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"same_day"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name_vi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trong ngày"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"shipping_cost"</span><span class="p">:</span><span class="w"> </span><span class="mi">20000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"shipping_cost_of_shop"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"short_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1032</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#DB3E36"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commune_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"district_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10107"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"full_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test - Quận Hai Bà Trưng, Hà Nội"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0999999999"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"province_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T17:56:28"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"last_updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-07T12:16:26"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC - Luffy Phường Kim Mã, Quận Ba Đình, Hà Nội"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Khởi tạo vận đơn"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Đã khởi tạo"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#AD7E05"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-07T12:16:26"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"last_updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T17:56:28"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asndaslnda"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Đã hủy"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#DB3E36"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T17:56:28"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint cancel a tracking into your business.</p>
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><code>DELETE /snappy/trackings/cancel</code></p>
+<h3 id='query-parameters-6'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+<td>Your personal acess_token</td>
+</tr>
+<tr>
+<td>tracking_id</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+<td>Unique id of tracking</td>
+</tr>
+<tr>
+<td>note</td>
+<td>true</td>
+<td>string</td>
+<td><code>Hủy vận đơn</code></td>
+<td>Note of status canceled</td>
+</tr>
+</tbody></table>
 <h2 id='tracking-status'>Tracking Status</h2>
 <table><thead>
 <tr>
@@ -1576,7 +1753,7 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint create an unique webhook callback url into your business.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>POST /snappy/trackings/webhook</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
@@ -1624,7 +1801,7 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific webhook callback url into your specific business.</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>GET /snappy/trackings/webhook</code></p>
 <h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
