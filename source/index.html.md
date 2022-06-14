@@ -2553,10 +2553,16 @@ tracking_ids | true | string | | List of tracking ids separate by comma. Sample:
 
 # Changelog
 
+## 2022-06-14
+
+### Add new tracking undeliverable categories
+
+<a href="https://statics.pancake.vn/user-content.pancake.vn/2022/6/14/4e986cc954ac4522eb838dd13341f2061f6cba9f.png" target="_blank" rel="changelog_2022_06_14">![changelog_2022_06_14](images/changelog_2022_06_14.png)</a>
+
 ## 2022-04-15
 
 ### Update tracking status
 
 * Add new tracking status `import_picking_warehouse`, `import_returning_warehouse`, `return_fail` and change minor `VN Name` of some tracking status
 
- <a href="http://api.snappy.vn/images/changelog_2022_04_15-e9fce970.png" target="_blank" rel="changelog_2022_04_15">![changelog_2022_04_15](images/changelog_2022_04_15.png)</a>
+<a href="https://api.snappy.vn/images/changelog_2022_04_15.png" target="_blank" rel="changelog_2022_04_15">![changelog_2022_04_15](images/changelog_2022_04_15.png)</a>
