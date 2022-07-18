@@ -1850,6 +1850,8 @@ Name | VN Name | Color code | Description
 `returned` | `Đã hoàn` | `#FF4500` | Vn Name is `current_status` and Name is `current_status_en` of api [GET /snappy/trackings](#get-trackings)
 `canceled` | `Đã hủy` | `#DB3E36` | Vn Name is `current_status` and Name is `current_status_en` of api [GET /snappy/trackings](#get-trackings)
 
+<a href="https://statics.pancake.vn/user-content.pancake.vn/2022/7/18/d6d64eb6c07abfe1fbbd177285431d52162e02fb.png" target="_blank" rel="changelog_2022_04_15">![changelog_2022_04_15](https://statics.pancake.vn/user-content.pancake.vn/2022/7/18/d6d64eb6c07abfe1fbbd177285431d52162e02fb.png)</a>
+
 ## Tracking Undeliverable Category
 
 > Sample respone of tracking.updates
