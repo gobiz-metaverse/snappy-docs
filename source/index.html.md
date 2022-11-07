@@ -1847,7 +1847,7 @@ Name | VN Name | Color code | Description
 `on_the_way_returning` | `Trung chuyển hoàn` | `#B37FEB` | Vn Name is `current_status` and Name is `current_status_en` of api [GET /snappy/trackings](#get-trackings)
 `returning` | `Đang hoàn` | `#51ACC7` | Vn Name is `current_status` and Name is `current_status_en` of api [GET /snappy/trackings](#get-trackings)
 `return_fail` | `Hoàn thất bại` | `#51ACC7` | Vn Name is `current_status` and Name is `current_status_en` of api [GET /snappy/trackings](#get-trackings)
-`returned` | `Đã hoàn` | `#FF4500` | Vn Name is `current_status` and Name is `current_status_en` of api [GET /snappy/trackings](#get-trackings)
+`returned` | `Hoàn thành công` | `#FF4500` | Vn Name is `current_status` and Name is `current_status_en` of api [GET /snappy/trackings](#get-trackings)
 `canceled` | `Đã hủy` | `#DB3E36` | Vn Name is `current_status` and Name is `current_status_en` of api [GET /snappy/trackings](#get-trackings)
 
 <a href="https://statics.pancake.vn/user-content.pancake.vn/2022/7/18/781c995a5b34640daaabe5e83bf7364ff9fae848.png" target="_blank" rel="changelog_2022_04_15">![changelog_2022_04_15](https://statics.pancake.vn/user-content.pancake.vn/2022/7/18/781c995a5b34640daaabe5e83bf7364ff9fae848.png)</a>
