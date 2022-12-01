@@ -69,7 +69,6 @@ Content-Type: application/json
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...",
     "businesses": [
         {
-            "addresses": [],
             "circulating_cod": 0,
             "circulating_cost": 0,
             "coupons": [],
@@ -99,7 +98,6 @@ Content-Type: application/json
                 "signatures": null
             },
             "owner_id": "cff10be4-3966-45b6-b156-a1a01000a6f9",
-            "packages": [],
             "payment_methods": [],
             "pending_balance": {
                 "sum_cod_amount": 0,
@@ -120,23 +118,7 @@ Content-Type: application/json
             "total_balance": 0,
             "total_payment_amount": 0,
             "tracking_count": 0,
-            "unique_name": "S09",
-            "users": [
-                {
-                    "avatar_url": null,
-                    "email": "user08@gmail.com",
-                    "fb_id": null,
-                    "id": "cff10be4-3966-45b6-b156-a1a01000a6f9",
-                    "inserted_at": "2021-04-09T09:16:13",
-                    "is_admin": false,
-                    "is_removed": false,
-                    "name": "user08",
-                    "permission": 1,
-                    "phone_number": "+84908123123",
-                    "role": "Khách hàng",
-                    "signatures": null
-                }
-            ]
+            "unique_name": "S09"
         }
     ],
     "data": {
@@ -341,19 +323,6 @@ GET /snappy/users/me?access_token=<access_token> HTTP/1.1
 {
     "businesses": [
         {
-            "addresses": [
-                {
-                    "address": "Số 1 ABC",
-                    "commune_id": null,
-                    "district_id": "10101",
-                    "full_address": "SG1 - Số 1 ABC, Quận Ba Đình, Hà Nội",
-                    "id": "82019ce2-088d-4cb1-8e8a-c6255d12ce6c",
-                    "is_default": true,
-                    "phone_number": "+84937123123",
-                    "province_id": "101",
-                    "zipcode": null
-                }
-            ],
             "business_payments": [],
             "id": 63,
             "inserted_at": "2018-04-17T15:07:49",
@@ -363,7 +332,6 @@ GET /snappy/users/me?access_token=<access_token> HTTP/1.1
             "name": "SG1",
             "owner_id": "14d4a1a1-ea42-4164-805d-e240f2561f71",
             "owner_name": "SG1",
-            "packages": [],
             "payment_methods": [],
             "phone_number": "0937123123",
             "remaining_balance": 0,
@@ -404,7 +372,7 @@ access_token | true | string | | Your personal acess_token
 ## Get a Specific Business
 
 ```http
-GET /snappy/businesses/<ID>?access_token=<access_token> HTTP/1.1
+GET /snappy/businesses/<business_id>?access_token=<access_token> HTTP/1.1
 ```
 
 > Response
@@ -412,21 +380,7 @@ GET /snappy/businesses/<ID>?access_token=<access_token> HTTP/1.1
 ```json
 {
     "business": {
-        "addresses": [
-            {
-                "address": "Số 1 ABC",
-                "commune_id": null,
-                "district_id": "10101",
-                "full_address": "SG1 - Số 1 ABC, Quận Ba Đình, Hà Nội",
-                "id": "82019ce2-088d-4cb1-8e8a-c6255d12ce6c",
-                "is_default": true,
-                "phone_number": "+84937123123",
-                "province_id": "101",
-                "zipcode": null
-            }
-        ],
-        "business_payments": [],
-        "coupons": [],
+        "coupons": [...],
         "id": 63,
         "inserted_at": "2018-04-17T15:07:49",
         "is_default": true,
@@ -435,8 +389,7 @@ GET /snappy/businesses/<ID>?access_token=<access_token> HTTP/1.1
         "name": "SG1",
         "owner_id": "14d4a1a1-ea42-4164-805d-e240f2561f71",
         "owner_name": "SG1",
-        "packages": [],
-        "payment_methods": [],
+        "payment_methods": [...],
         "phone_number": "0937123123",
         "remaining_balance": 0,
         "total_balance": 0,
@@ -452,25 +405,24 @@ This endpoint retrieves a specific business.
 
 ### HTTP Request
 
-`GET /snappy/businesses/<ID>`
+`GET /snappy/businesses/<business_id>`
 
 ### URL Parameters
 
 Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------
 access_token | true | string | | Your personal acess_token
-ID | true | integer | | Id of a business in list businesses. Get in api [GET /user/me](#get-all-businesses)
+business_id | true | integer | | Id of a business in list businesses. Get in api [GET /user/me](#get-all-businesses)
 
 ## Create Business Address
 
 ```http
-POST /snappy/businesses/address/create?access_token=<access_token> HTTP/1.1
+POST /snappy/businesses/<business_id>/addresses?access_token=<access_token> HTTP/1.1
 ```
 > Sample params
 
 ```json
 {
-    "business_id": 63,
     "name": "Kho hàng Thái Hà",
     "phone_number": "0999999999",
     "address": "123 Thái Hà",
@@ -486,19 +438,6 @@ POST /snappy/businesses/address/create?access_token=<access_token> HTTP/1.1
 ```json
 {
     "business": {
-        "addresses": [
-            {
-                "address": "123 Thái Hà",
-                "commune_id": "1010101",
-                "district_id": "10101",
-                "full_address": "Kho hàng Thái Hà - 123 Thái Hà Phường Láng Hạ, Quận Đống Đa, Hà Nội",
-                "id": "6c5d5327-5e1d-4a01-9022-d4f3c5fa229e",
-                "is_default": true,
-                "phone_number": "+84999999999",
-                "province_id": "101",
-                "zipcode": null
-            }
-        ],
         "business_payments": [],
         "hotlines": null,
         "id": 63,
@@ -509,12 +448,20 @@ POST /snappy/businesses/address/create?access_token=<access_token> HTTP/1.1
         "name": "SG1",
         "owner_id": "14d4a1a1-ea42-4164-805d-e240f2561f71",
         "owner_name": "SG1",
-        "packages": [],
         "payment_methods": [],
         "phone_number": "0888888888",
         "tracking_count": 6,
         "unique_name": "S63",
         "updated_at": "2018-12-10T10:28:12"
+    },
+    "address": {
+        "name": "Kho hàng Thái Hà",
+        "phone_number": "0999999999",
+        "address": "123 Thái Hà",
+        "province_id": "101",
+        "district_id": "10109",
+        "commune_id": "1010939",
+        "is_default": true
     },
     "message": "Bạn đã tạo kho hàng mới thành công",
     "success": true
@@ -525,9 +472,11 @@ This endpoint create an address into your business.
 
 ### HTTP Request
 
-`POST /snappy/businesses/address/create`
+`POST /snappy/businesses/address/create` **DEPRECATED**
 
-### URL Parameters
+`POST /snappy/businesses/<business_id>/addresses`
+
+### Parameters
 
 Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------
@@ -544,14 +493,13 @@ is_default | false | boolean | false | If `true` this business address will set 
 ## Update Business Address
 
 ```http
-POST /snappy/businesses/address/update?access_token=<access_token> HTTP/1.1
+PUT /snappy/businesses/<business_id>/addresses?access_token=<access_token> HTTP/1.1
 ```
 > Sample params
 
 ```json
 {
     "business_address_id": "27d22b0e-0153-4830-8632-38645ab2a642",
-    "business_id": 63,
     "name": "Kho hàng Thái Hà",
     "phone_number": "0999999999",
     "address": "123 Thái Hà",
@@ -567,19 +515,6 @@ POST /snappy/businesses/address/update?access_token=<access_token> HTTP/1.1
 ```json
 {
     "business": {
-        "addresses": [
-            {
-                "address": "123 Thái Hà",
-                "commune_id": "1010101",
-                "district_id": "10101",
-                "full_address": "Kho hàng Thái Hà - 123 Thái Hà Phường Láng Hạ, Quận Đống Đa, Hà Nội",
-                "id": "6c5d5327-5e1d-4a01-9022-d4f3c5fa229e",
-                "is_default": true,
-                "phone_number": "+84999999999",
-                "province_id": "101",
-                "zipcode": null
-            }
-        ],
         "business_payments": [],
         "hotlines": null,
         "id": 63,
@@ -590,12 +525,20 @@ POST /snappy/businesses/address/update?access_token=<access_token> HTTP/1.1
         "name": "SG1",
         "owner_id": "14d4a1a1-ea42-4164-805d-e240f2561f71",
         "owner_name": "SG1",
-        "packages": [],
         "payment_methods": [],
         "phone_number": "0888888888",
         "tracking_count": 6,
         "unique_name": "S63",
         "updated_at": "2018-12-10T10:28:12"
+    },
+    "address": {
+        "name": "Kho hàng Thái Hà",
+        "phone_number": "0999999999",
+        "address": "123 Thái Hà",
+        "province_id": "101",
+        "district_id": "10109",
+        "commune_id": "1010939",
+        "is_default": true
     },
     "message": "Bạn đã cập nhật kho hàng thành công",
     "success": true
@@ -606,7 +549,9 @@ This endpoint update an address into your business.
 
 ### HTTP Request
 
-`POST /snappy/businesses/address/update`
+`POST /snappy/businesses/address/update` **DEPRECATED**
+
+`PUT /snappy/businesses/<business_id>/addresses`
 
 ### URL Parameters
 
@@ -1029,24 +974,6 @@ GET /snappy/trackings/<ID>?access_token=<access_token> HTTP/1.1
          "province_id":"805",
          "province_name":"An Giang"
       },
-      "partner_info":{
-         "ems":{
-            "cod_cost":0,
-            "insurance_cost":0,
-            "shipping_cost":12650
-         },
-         "ghtk":{
-            "cod_cost":0,
-            "insurance_cost":0,
-            "shipping_cost":0,
-            "transport":"fly"
-         },
-         "njv":{
-            "cod_cost":0,
-            "insurance_cost":0,
-            "shipping_cost":25000
-         }
-      },
       "returner_id":null,
       "print_data":{
          "district_type":"NT",
@@ -1214,7 +1141,6 @@ Content-Type: application/json
             "id": -1,
             "name": "Snappy HN",
             "phone_number": "1900636505",
-            "phone_number_care_ghtk": "0918392442",
             "province_id": "101",
             "province_name": "Hà Nội",
             "second_phone_number": "",
@@ -1384,7 +1310,6 @@ Content-Type: application/json
             "sender_province": "HN"
         },
         "returned_editor": null,
-        "partner_info": {},
         "package_info": {
             "items": [
                 {
@@ -1618,7 +1543,6 @@ Content-Type: application/json
             "id": -1,
             "name": "Snappy HN",
             "phone_number": "1900636505",
-            "phone_number_care_ghtk": "0918392442",
             "pickup_shippo_id": 10010376,
             "province_id": "101",
             "province_name": "Hà Nội",
@@ -1751,24 +1675,6 @@ Content-Type: application/json
         "receiver_district_id": "10101",
         "returned_at": null,
         "status_color": "#DB3E36",
-        "partner_info": {
-            "ems": {
-                "cod_cost": 0,
-                "insurance_cost": 0,
-                "shipping_cost": 17500
-            },
-            "ghtk": {
-                "cod_cost": 0,
-                "insurance_cost": 0,
-                "shipping_cost": 16000,
-                "transport": "fly"
-            },
-            "njv": {
-                "cod_cost": 0,
-                "insurance_cost": 0,
-                "shipping_cost": 25000
-            }
-        },
         "inserted_at": "2020-08-19T15:05:40",
         "tracking_undeliverable": null,
         "current_status_en": "canceled",
