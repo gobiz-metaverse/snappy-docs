@@ -2474,3 +2474,7 @@ tracking_ids | true | string | | List of tracking ids separate by comma. Sample:
 * Add new tracking status `import_picking_warehouse`, `import_returning_warehouse`, `return_fail` and change minor `VN Name` of some tracking status
 
 <a href="https://statics.pancake.vn/user-content.pancake.vn/2022/6/14/f5f492f6c1a13b45fb1fbcc8d0292c6621df6dd1.png" target="_blank" rel="changelog_2022_04_15">![changelog_2022_04_15](https://statics.pancake.vn/user-content.pancake.vn/2022/6/14/f5f492f6c1a13b45fb1fbcc8d0292c6621df6dd1.png)</a>
+
+## 2022-12-01
+
+https://snappy.vn/post/34
