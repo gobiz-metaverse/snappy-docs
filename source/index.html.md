@@ -2477,4 +2477,4 @@ tracking_ids | true | string | | List of tracking ids separate by comma. Sample:
 
 ## 2022-12-01
 
-https://snappy.vn/post/34
+<a href="https://snappy.vn/post/34" target="_blank" rel="changelog_2022_06_14">![changelog_2022_06_14](https://snappy.vn/post/34)</a>
