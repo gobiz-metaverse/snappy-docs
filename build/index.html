@@ -356,6 +356,9 @@
                     <a href="#get-a-specific-business" class="toc-h2 toc-link" data-title="Get a Specific Business">Get a Specific Business</a>
                   </li>
                   <li>
+                    <a href="#get-all-business-addresses" class="toc-h2 toc-link" data-title="Get All Business Addresses">Get All Business Addresses</a>
+                  </li>
+                  <li>
                     <a href="#create-business-address" class="toc-h2 toc-link" data-title="Create Business Address">Create Business Address</a>
                   </li>
                   <li>
@@ -865,6 +868,77 @@ You must replace <code>access_token</code> with your personal access_token.
 <td>Id of a business in list businesses. Get in api <a href="#get-all-businesses">GET /user/me</a></td>
 </tr>
 </tbody></table>
+<h2 id='get-all-business-addresses'>Get All Business Addresses</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/snappy/businesses/&lt;business_id&gt;/addresses?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre></div>
+<blockquote>
+<p>Response if success</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ha noi"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"commune_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1012951"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"district_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10129"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"full_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Địa điểm mặc định - ha noi - Xã Ba Vì, Huyện Ba Vì, Hà Nội"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"889ca20a-433e-4f30-bf52-34bc10054de7"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"inserted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-22T09:09:53"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"is_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"is_removed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Địa điểm mặc định"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0332456789"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"province_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"commune_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1011521"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"district_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10115"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"full_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test - test - Xã Phù Lỗ, Huyện Sóc Sơn, Hà Nội"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ecb5150e-9aac-424b-b5d9-c813fbffa324"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"inserted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-04-26T14:31:10"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"is_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"is_removed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0999999999"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"province_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"page_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">114</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint create an address into your business.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET /snappy/businesses/&lt;business_id&gt;/addresses</code></p>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+<td>Your personal acess_token</td>
+</tr>
+<tr>
+<td>page</td>
+<td>false</td>
+<td>integer</td>
+<td>1</td>
+<td>Page number</td>
+</tr>
+</tbody></table>
 <h2 id='create-business-address'>Create Business Address</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/snappy/businesses/&lt;business_id&gt;/addresses?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre></div>
 <blockquote>
@@ -915,11 +989,11 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint create an address into your business.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>POST /snappy/businesses/address/create</code> <strong>DEPRECATED</strong></p>
 
 <p><code>POST /snappy/businesses/&lt;business_id&gt;/addresses</code></p>
-<h3 id='parameters'>Parameters</h3>
+<h3 id='parameters-2'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1044,7 +1118,7 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint update an address into your business.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>POST /snappy/businesses/address/update</code> <strong>DEPRECATED</strong></p>
 
 <p><code>PUT /snappy/businesses/&lt;business_id&gt;/addresses</code></p>
@@ -1358,7 +1432,7 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all trackings into your business.</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>GET /snappy/trackings</code></p>
 <h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
@@ -1685,7 +1759,7 @@ You must replace <code>access_token</code> with your personal access_token.
 
 </span></code></pre></div>
 <p>This endpoint retrieves a tracking.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>GET /snappy/trackings/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
@@ -1953,7 +2027,7 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint create a tracking into your business.</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>POST /snappy/trackings/create</code></p>
 <h3 id='query-parameters-6'>Query Parameters</h3>
 <table><thead>
@@ -2292,7 +2366,7 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint calculate all cost of a tracking.</p>
-<h3 id='http-request-12'>HTTP Request</h3>
+<h3 id='http-request-13'>HTTP Request</h3>
 <p><code>POST /snappy/trackings/cal_shipping_cost</code></p>
 <h3 id='query-parameters-7'>Query Parameters</h3>
 <table><thead>
@@ -2604,7 +2678,7 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint cancel a tracking into your business.</p>
-<h3 id='http-request-13'>HTTP Request</h3>
+<h3 id='http-request-14'>HTTP Request</h3>
 <p><code>DELETE /snappy/trackings/cancel</code></p>
 <h3 id='query-parameters-8'>Query Parameters</h3>
 <table><thead>
@@ -3243,7 +3317,7 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint create an unique webhook callback url into your business.</p>
-<h3 id='http-request-14'>HTTP Request</h3>
+<h3 id='http-request-15'>HTTP Request</h3>
 <p><code>POST /snappy/businesses/&lt;business_id&gt;/webhook</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
@@ -3291,7 +3365,7 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves a specific webhook callback url into your specific business.</p>
-<h3 id='http-request-15'>HTTP Request</h3>
+<h3 id='http-request-16'>HTTP Request</h3>
 <p><code>GET /snappy/businesses/&lt;business_id&gt;/webhook</code></p>
 <h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
@@ -3332,7 +3406,7 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves a specific webhook callback url into your specific business.</p>
-<h3 id='http-request-16'>HTTP Request</h3>
+<h3 id='http-request-17'>HTTP Request</h3>
 <p><code>PUT /snappy/businesses/&lt;business_id&gt;/webhook</code></p>
 <h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
@@ -3640,7 +3714,7 @@ Please note that <code>changes</code> and <code>updates</code> is important to h
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint create an request to Snappy when a tracking need modify information, report abuse, etc..</p>
-<h3 id='http-request-17'>HTTP Request</h3>
+<h3 id='http-request-18'>HTTP Request</h3>
 <p><code>POST /snappy/request</code></p>
 <h3 id='url-parameters-7'>URL Parameters</h3>
 <table><thead>
@@ -3864,7 +3938,7 @@ Please note that <code>changes</code> and <code>updates</code> is important to h
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves a specific webhook callback url into your specific business.</p>
-<h3 id='http-request-18'>HTTP Request</h3>
+<h3 id='http-request-19'>HTTP Request</h3>
 <p><code>GET /snappy/request</code></p>
 <h3 id='url-parameters-8'>URL Parameters</h3>
 <table><thead>

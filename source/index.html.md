@@ -414,6 +414,67 @@ Parameter | Required | Type    | Default | Description
 access_token | true | string | | Your personal acess_token
 business_id | true | integer | | Id of a business in list businesses. Get in api [GET /user/me](#get-all-businesses)
 
+## Get All Business Addresses
+
+```http
+GET /snappy/businesses/<business_id>/addresses?access_token=<access_token> HTTP/1.1
+```
+
+> Response if success
+
+```json
+{
+    "data": {
+        "addresses": [
+            {
+                "address": "ha noi",
+                "commune_id": "1012951",
+                "district_id": "10129",
+                "full_address": "Địa điểm mặc định - ha noi - Xã Ba Vì, Huyện Ba Vì, Hà Nội",
+                "id": "889ca20a-433e-4f30-bf52-34bc10054de7",
+                "inserted_at": "2021-05-22T09:09:53",
+                "is_default": false,
+                "is_removed": false,
+                "name": "Địa điểm mặc định",
+                "phone_number": "0332456789",
+                "province_id": "101",
+            },
+            {
+                "address": "test",
+                "commune_id": "1011521",
+                "district_id": "10115",
+                "full_address": "test - test - Xã Phù Lỗ, Huyện Sóc Sơn, Hà Nội",
+                "id": "ecb5150e-9aac-424b-b5d9-c813fbffa324",
+                "inserted_at": "2021-04-26T14:31:10",
+                "is_default": false,
+                "is_removed": false,
+                "name": "test",
+                "phone_number": "0999999999",
+                "province_id": "101",
+            }
+        ],
+        "page_number": 1,
+        "page_size": 50,
+        "total_entries": 114,
+        "total_pages": 3
+    },
+    "success": true
+}
+```
+
+This endpoint create an address into your business.
+
+### HTTP Request
+
+`GET /snappy/businesses/<business_id>/addresses`
+
+### Parameters
+
+Parameter | Required | Type    | Default | Description
+--------- | ------- | ------- | ------- | -----------
+access_token | true | string | | Your personal acess_token
+page | false | integer | 1 | Page number
+
 ## Create Business Address
 
 ```http
