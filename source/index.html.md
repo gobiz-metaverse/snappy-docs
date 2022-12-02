@@ -1405,7 +1405,7 @@ Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------
 access_token | true | string | | Your personal acess_token
 business_id | true | integer | | Id of a business in list businesses. Get in api [GET /user/me](#get-all-businesses)
-business_address_id | true | string | | Id `UUID` of one of business address. Get in api [GET /businesses/<ID>](#get-a-specific-business) (NOTE: if you don't want to create one, you have to use alternative data fields, detail is listed in **Extra Fields** part below)
+business_address_id | true | string | | Id `UUID` of one business address. Get in api [GET /businesses/<id>/addresses](#get-all-business-addresses) (NOTE: if you don't want to create one, you have to use alternative data fields, detail is listed in **Extra Fields** part below)
 pickup_note | false | string | | Pickup note of shop
 delivery_note | false | string | | Delivery note of shop
 receiver_name | true | string | | Name of receiver
