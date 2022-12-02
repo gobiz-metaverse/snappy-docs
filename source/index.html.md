@@ -554,13 +554,14 @@ is_default | false | boolean | false | If `true` this business address will set 
 ## Update Business Address
 
 ```http
-PUT /snappy/businesses/<business_id>/addresses?access_token=<access_token> HTTP/1.1
+PUT /snappy/businesses/<business_id>/addresses/<id>?access_token=<access_token> HTTP/1.1
 ```
 > Sample params
 
 ```json
 {
-    "business_address_id": "27d22b0e-0153-4830-8632-38645ab2a642",
+    "business_id": 37,
+    "id": "27d22b0e-0153-4830-8632-38645ab2a642",
     "name": "Kho hàng Thái Hà",
     "phone_number": "0999999999",
     "address": "123 Thái Hà",
@@ -620,7 +621,7 @@ Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------
 access_token | true | string | | Your personal acess_token
 business_id | true | integer | | Id of a business in list businesses. Get in api [GET /user/me](#get-all-businesses)
-business_address_id | true | string | | Id `UUID` of one of business address. Get in api [GET /businesses/<ID>](#get-a-specific-business)
+id | true | string | | Id `UUID` of one business address. Get in api [GET /businesses/<id>/addresses](#get-all-business-addresses)
 name | true | string | | Name of business address
 phone_number | true | string | | Phone number of business address
 address | true | string | | Address of business address

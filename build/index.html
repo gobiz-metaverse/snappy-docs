@@ -1067,13 +1067,14 @@ You must replace <code>access_token</code> with your personal access_token.
 <td>If <code>true</code> this business address will set to default business address</td>
 </tr>
 </tbody></table>
-<h2 id='update-business-address'>Update Business Address</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/snappy/businesses/&lt;business_id&gt;/addresses?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h2 id='update-business-address'>Update Business Address</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/snappy/businesses/&lt;business_id&gt;/addresses/&lt;id&gt;?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre></div>
 <blockquote>
 <p>Sample params</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"business_address_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27d22b0e-0153-4830-8632-38645ab2a642"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"business_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27d22b0e-0153-4830-8632-38645ab2a642"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kho hàng Thái Hà"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0999999999"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Thái Hà"</span><span class="p">,</span><span class="w">
@@ -1147,11 +1148,11 @@ You must replace <code>access_token</code> with your personal access_token.
 <td>Id of a business in list businesses. Get in api <a href="#get-all-businesses">GET /user/me</a></td>
 </tr>
 <tr>
-<td>business_address_id</td>
+<td>id</td>
 <td>true</td>
 <td>string</td>
 <td></td>
-<td>Id <code>UUID</code> of one of business address. Get in api <a href="#get-a-specific-business">GET /businesses/<ID></a></td>
+<td>Id <code>UUID</code> of one business address. Get in api <a href="#get-all-business-addresses">GET /businesses/<id>/addresses</a></td>
 </tr>
 <tr>
 <td>name</td>
