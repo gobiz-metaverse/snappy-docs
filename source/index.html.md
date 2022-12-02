@@ -372,7 +372,7 @@ access_token | true | string | | Your personal acess_token
 ## Get a Specific Business
 
 ```http
-GET /snappy/businesses/<business_id>?access_token=<access_token> HTTP/1.1
+GET /snappy/businesses/:business_id?access_token=<access_token> HTTP/1.1
 ```
 
 > Response
@@ -405,7 +405,7 @@ This endpoint retrieves a specific business.
 
 ### HTTP Request
 
-`GET /snappy/businesses/<business_id>`
+`GET /snappy/businesses/:business_id`
 
 ### URL Parameters
 
@@ -417,7 +417,7 @@ business_id | true | integer | | Id of a business in list businesses. Get in api
 ## Get All Business Addresses
 
 ```http
-GET /snappy/businesses/<business_id>/addresses?access_token=<access_token> HTTP/1.1
+GET /snappy/businesses/:business_id/addresses?access_token=<access_token> HTTP/1.1
 ```
 
 > Response if success
@@ -466,7 +466,7 @@ This endpoint create an address into your business.
 
 ### HTTP Request
 
-`GET /snappy/businesses/<business_id>/addresses`
+`GET /snappy/businesses/:business_id/addresses`
 
 ### Parameters
 
@@ -478,7 +478,7 @@ page | false | integer | 1 | Page number
 ## Create Business Address
 
 ```http
-POST /snappy/businesses/<business_id>/addresses?access_token=<access_token> HTTP/1.1
+POST /snappy/businesses/:business_id/addresses?access_token=<access_token> HTTP/1.1
 ```
 > Sample params
 
@@ -535,7 +535,7 @@ This endpoint create an address into your business.
 
 `POST /snappy/businesses/address/create` **DEPRECATED**
 
-`POST /snappy/businesses/<business_id>/addresses`
+`POST /snappy/businesses/:business_id/addresses`
 
 ### Parameters
 
@@ -554,7 +554,7 @@ is_default | false | boolean | false | If `true` this business address will set 
 ## Update Business Address
 
 ```http
-PUT /snappy/businesses/<business_id>/addresses/<id>?access_token=<access_token> HTTP/1.1
+PUT /snappy/businesses/:business_id/addresses/:id?access_token=<access_token> HTTP/1.1
 ```
 > Sample params
 
@@ -613,7 +613,7 @@ This endpoint update an address into your business.
 
 `POST /snappy/businesses/address/update` **DEPRECATED**
 
-`PUT /snappy/businesses/<business_id>/addresses`
+`PUT /snappy/businesses/:business_id/addresses/:id`
 
 ### URL Parameters
 
@@ -621,7 +621,7 @@ Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------
 access_token | true | string | | Your personal acess_token
 business_id | true | integer | | Id of a business in list businesses. Get in api [GET /user/me](#get-all-businesses)
-id | true | string | | Id `UUID` of one business address. Get in api [GET /businesses/<business_id>/addresses](#get-all-business-addresses)
+id | true | string | | Id `UUID` of one business address. Get in api [GET /businesses/:business_id/addresses](#get-all-business-addresses)
 name | true | string | | Name of business address
 phone_number | true | string | | Phone number of business address
 address | true | string | | Address of business address
@@ -889,7 +889,7 @@ keyword | false | string | | keyword for search by address, phone number, tracki
 ## Show Tracking
 
 ```http
-GET /snappy/trackings/<ID>?access_token=<access_token> HTTP/1.1
+GET /snappy/trackings/:id?access_token=<access_token> HTTP/1.1
 ```
 
 > Response
@@ -1138,14 +1138,14 @@ This endpoint retrieves a tracking.
 
 ### HTTP Request
 
-`GET /snappy/trackings/<ID>`
+`GET /snappy/trackings/:id`
 
 ### URL Parameters
 
 Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------
 access_token | true | string | | Your personal acess_token
-ID | true | string | | Id of a tracking in list trackings. Get in api [GET /snappy/trackings](#get-trackings)
+id | true | string | | Id of a tracking in list trackings. Get in api [GET /snappy/trackings](#get-trackings)
 
 ## Create tracking
 
@@ -1405,7 +1405,7 @@ Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------
 access_token | true | string | | Your personal acess_token
 business_id | true | integer | | Id of a business in list businesses. Get in api [GET /user/me](#get-all-businesses)
-business_address_id | true | string | | Id `UUID` of one business address. Get in api [GET /businesses/<business_id>/addresses](#get-all-business-addresses) (NOTE: if you don't want to create one, you have to use alternative data fields, detail is listed in **Extra Fields** part below)
+business_address_id | true | string | | Id `UUID` of one business address. Get in api [GET /businesses/:business_id/addresses](#get-all-business-addresses) (NOTE: if you don't want to create one, you have to use alternative data fields, detail is listed in **Extra Fields** part below)
 pickup_note | false | string | | Pickup note of shop
 delivery_note | false | string | | Delivery note of shop
 receiver_name | true | string | | Name of receiver
@@ -1908,7 +1908,7 @@ ID | category | sub_category | category_vi | sub_category_vi
 
 ## Tracking Print
 
-This is special part. With this api you must be redirect or open new tab in your browser and apply this link `https://snappy.vn/print/<ids>&business_id=<business_id>&access_token=<access_token>`
+This is special part. With this api you must be redirect or open new tab in your browser and apply this link `https://snappy.vn/print/:ids&business_id=<business_id>&access_token=<access_token>`
 
 Parameter | Required | Type | Description
 --------- | ------- | ------- | ------- | -----------
@@ -2030,7 +2030,7 @@ When tracking update status to another status, Snappy will send a POST request f
 ## Create Webhook
 
 ```http
-POST /snappy/businesses/<business_id>/webhook?access_token=<access_token> HTTP/1.1
+POST /snappy/businesses/:business_id/webhook?access_token=<access_token> HTTP/1.1
 ```
 > Sample params
 
@@ -2057,7 +2057,7 @@ This endpoint create an unique webhook callback url into your business.
 
 ### HTTP Request
 
-`POST /snappy/businesses/<business_id>/webhook`
+`POST /snappy/businesses/:business_id/webhook`
 
 ### URL Parameters
 
@@ -2070,7 +2070,7 @@ callback_url | true | string | | The endpoint Snappy will send POST request
 ## Get a Specific Webhook
 
 ```http
-GET /snappy/businesses/<business_id>/webhook&access_token=<access_token> HTTP/1.1
+GET /snappy/businesses/:business_id/webhook&access_token=<access_token> HTTP/1.1
 ```
 
 > Response
@@ -2089,7 +2089,7 @@ This endpoint retrieves a specific webhook callback url into your specific busin
 
 ### HTTP Request
 
-`GET /snappy/businesses/<business_id>/webhook`
+`GET /snappy/businesses/:business_id/webhook`
 
 ### URL Parameters
 
@@ -2101,7 +2101,7 @@ business_id | true | integer | | Id of a business in list businesses. Get in api
 ## Update Webhook
 
 ```http
-PUT /snappy/businesses/<business_id>/webhook&access_token=<access_token> HTTP/1.1
+PUT /snappy/businesses/:business_id/webhook&access_token=<access_token> HTTP/1.1
 ```
 
 > Response
@@ -2120,7 +2120,7 @@ This endpoint retrieves a specific webhook callback url into your specific busin
 
 ### HTTP Request
 
-`PUT /snappy/businesses/<business_id>/webhook`
+`PUT /snappy/businesses/:business_id/webhook`
 
 ### URL Parameters
 

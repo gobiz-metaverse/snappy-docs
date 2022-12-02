@@ -813,7 +813,7 @@ You must replace <code>access_token</code> with your personal access_token.
 <td>Your personal acess_token</td>
 </tr>
 </tbody></table>
-<h2 id='get-a-specific-business'>Get a Specific Business</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/snappy/businesses/&lt;business_id&gt;?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h2 id='get-a-specific-business'>Get a Specific Business</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/snappy/businesses/:business_id?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre></div>
 <blockquote>
 <p>Response</p>
@@ -842,7 +842,7 @@ You must replace <code>access_token</code> with your personal access_token.
 </span></code></pre></div>
 <p>This endpoint retrieves a specific business.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
-<p><code>GET /snappy/businesses/&lt;business_id&gt;</code></p>
+<p><code>GET /snappy/businesses/:business_id</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -868,7 +868,7 @@ You must replace <code>access_token</code> with your personal access_token.
 <td>Id of a business in list businesses. Get in api <a href="#get-all-businesses">GET /user/me</a></td>
 </tr>
 </tbody></table>
-<h2 id='get-all-business-addresses'>Get All Business Addresses</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/snappy/businesses/&lt;business_id&gt;/addresses?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h2 id='get-all-business-addresses'>Get All Business Addresses</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/snappy/businesses/:business_id/addresses?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre></div>
 <blockquote>
 <p>Response if success</p>
@@ -913,7 +913,7 @@ You must replace <code>access_token</code> with your personal access_token.
 </span></code></pre></div>
 <p>This endpoint create an address into your business.</p>
 <h3 id='http-request-7'>HTTP Request</h3>
-<p><code>GET /snappy/businesses/&lt;business_id&gt;/addresses</code></p>
+<p><code>GET /snappy/businesses/:business_id/addresses</code></p>
 <h3 id='parameters'>Parameters</h3>
 <table><thead>
 <tr>
@@ -939,7 +939,7 @@ You must replace <code>access_token</code> with your personal access_token.
 <td>Page number</td>
 </tr>
 </tbody></table>
-<h2 id='create-business-address'>Create Business Address</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/snappy/businesses/&lt;business_id&gt;/addresses?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h2 id='create-business-address'>Create Business Address</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/snappy/businesses/:business_id/addresses?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre></div>
 <blockquote>
 <p>Sample params</p>
@@ -992,7 +992,7 @@ You must replace <code>access_token</code> with your personal access_token.
 <h3 id='http-request-8'>HTTP Request</h3>
 <p><code>POST /snappy/businesses/address/create</code> <strong>DEPRECATED</strong></p>
 
-<p><code>POST /snappy/businesses/&lt;business_id&gt;/addresses</code></p>
+<p><code>POST /snappy/businesses/:business_id/addresses</code></p>
 <h3 id='parameters-2'>Parameters</h3>
 <table><thead>
 <tr>
@@ -1067,7 +1067,7 @@ You must replace <code>access_token</code> with your personal access_token.
 <td>If <code>true</code> this business address will set to default business address</td>
 </tr>
 </tbody></table>
-<h2 id='update-business-address'>Update Business Address</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/snappy/businesses/&lt;business_id&gt;/addresses/&lt;id&gt;?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h2 id='update-business-address'>Update Business Address</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/snappy/businesses/:business_id/addresses/:id?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre></div>
 <blockquote>
 <p>Sample params</p>
@@ -1122,7 +1122,7 @@ You must replace <code>access_token</code> with your personal access_token.
 <h3 id='http-request-9'>HTTP Request</h3>
 <p><code>POST /snappy/businesses/address/update</code> <strong>DEPRECATED</strong></p>
 
-<p><code>PUT /snappy/businesses/&lt;business_id&gt;/addresses</code></p>
+<p><code>PUT /snappy/businesses/:business_id/addresses/:id</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1152,7 +1152,7 @@ You must replace <code>access_token</code> with your personal access_token.
 <td>true</td>
 <td>string</td>
 <td></td>
-<td>Id <code>UUID</code> of one business address. Get in api <a href="#get-all-business-addresses">GET /businesses/<business_id>/addresses</a></td>
+<td>Id <code>UUID</code> of one business address. Get in api <a href="#get-all-business-addresses">GET /businesses/:business_id/addresses</a></td>
 </tr>
 <tr>
 <td>name</td>
@@ -1516,7 +1516,7 @@ You must replace <code>access_token</code> with your personal access_token.
 <td>keyword for search by address, phone number, tracking id, ...</td>
 </tr>
 </tbody></table>
-<h2 id='show-tracking'>Show Tracking</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/snappy/trackings/&lt;ID&gt;?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h2 id='show-tracking'>Show Tracking</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/snappy/trackings/:id?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre></div>
 <blockquote>
 <p>Response</p>
@@ -1761,7 +1761,7 @@ You must replace <code>access_token</code> with your personal access_token.
 </span></code></pre></div>
 <p>This endpoint retrieves a tracking.</p>
 <h3 id='http-request-11'>HTTP Request</h3>
-<p><code>GET /snappy/trackings/&lt;ID&gt;</code></p>
+<p><code>GET /snappy/trackings/:id</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1780,7 +1780,7 @@ You must replace <code>access_token</code> with your personal access_token.
 <td>Your personal acess_token</td>
 </tr>
 <tr>
-<td>ID</td>
+<td>id</td>
 <td>true</td>
 <td>string</td>
 <td></td>
@@ -2059,7 +2059,7 @@ You must replace <code>access_token</code> with your personal access_token.
 <td>true</td>
 <td>string</td>
 <td></td>
-<td>Id <code>UUID</code> of one business address. Get in api <a href="#get-all-business-addresses">GET /businesses/<business_id>/addresses</a> (NOTE: if you don&#39;t want to create one, you have to use alternative data fields, detail is listed in <strong>Extra Fields</strong> part below)</td>
+<td>Id <code>UUID</code> of one business address. Get in api <a href="#get-all-business-addresses">GET /businesses/:business_id/addresses</a> (NOTE: if you don&#39;t want to create one, you have to use alternative data fields, detail is listed in <strong>Extra Fields</strong> part below)</td>
 </tr>
 <tr>
 <td>pickup_note</td>
@@ -3159,7 +3159,7 @@ You must replace <code>access_token</code> with your personal access_token.
 </tr>
 </tbody></table>
 <h2 id='tracking-print'>Tracking Print</h2>
-<p>This is special part. With this api you must be redirect or open new tab in your browser and apply this link <code>https://snappy.vn/print/&lt;ids&gt;&amp;business_id=&lt;business_id&gt;&amp;access_token=&lt;access_token&gt;</code></p>
+<p>This is special part. With this api you must be redirect or open new tab in your browser and apply this link <code>https://snappy.vn/print/:ids&amp;business_id=&lt;business_id&gt;&amp;access_token=&lt;access_token&gt;</code></p>
 
 <table><thead>
 <tr>
@@ -3296,7 +3296,7 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>When tracking update status to another status, Snappy will send a POST request following the callback url created in api <a href="#create-webhook">POST /snappy/trackings/webhook</a>. Max retry of the request with each tracking status to callback url is 5 times. List tracking status <a href="#tracking-status">Tracking Status</a>. The body of POST request sent to callback url similar to <code>tracking</code> field response from api <a href="#create-tracking">POST /snappy/trackings/create</a></p>
-<h2 id='create-webhook'>Create Webhook</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/snappy/businesses/&lt;business_id&gt;/webhook?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h2 id='create-webhook'>Create Webhook</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/snappy/businesses/:business_id/webhook?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre></div>
 <blockquote>
 <p>Sample params</p>
@@ -3319,7 +3319,7 @@ You must replace <code>access_token</code> with your personal access_token.
 </span></code></pre></div>
 <p>This endpoint create an unique webhook callback url into your business.</p>
 <h3 id='http-request-15'>HTTP Request</h3>
-<p><code>POST /snappy/businesses/&lt;business_id&gt;/webhook</code></p>
+<p><code>POST /snappy/businesses/:business_id/webhook</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -3352,7 +3352,7 @@ You must replace <code>access_token</code> with your personal access_token.
 <td>The endpoint Snappy will send POST request</td>
 </tr>
 </tbody></table>
-<h2 id='get-a-specific-webhook'>Get a Specific Webhook</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/snappy/businesses/&lt;business_id&gt;/webhook&amp;access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h2 id='get-a-specific-webhook'>Get a Specific Webhook</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/snappy/businesses/:business_id/webhook&amp;access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre></div>
 <blockquote>
 <p>Response</p>
@@ -3367,7 +3367,7 @@ You must replace <code>access_token</code> with your personal access_token.
 </span></code></pre></div>
 <p>This endpoint retrieves a specific webhook callback url into your specific business.</p>
 <h3 id='http-request-16'>HTTP Request</h3>
-<p><code>GET /snappy/businesses/&lt;business_id&gt;/webhook</code></p>
+<p><code>GET /snappy/businesses/:business_id/webhook</code></p>
 <h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -3393,7 +3393,7 @@ You must replace <code>access_token</code> with your personal access_token.
 <td>Id of a business in list businesses. Get in api <a href="#get-all-businesses">GET /user/me</a></td>
 </tr>
 </tbody></table>
-<h2 id='update-webhook'>Update Webhook</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/snappy/businesses/&lt;business_id&gt;/webhook&amp;access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h2 id='update-webhook'>Update Webhook</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/snappy/businesses/:business_id/webhook&amp;access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre></div>
 <blockquote>
 <p>Response</p>
@@ -3408,7 +3408,7 @@ You must replace <code>access_token</code> with your personal access_token.
 </span></code></pre></div>
 <p>This endpoint retrieves a specific webhook callback url into your specific business.</p>
 <h3 id='http-request-17'>HTTP Request</h3>
-<p><code>PUT /snappy/businesses/&lt;business_id&gt;/webhook</code></p>
+<p><code>PUT /snappy/businesses/:business_id/webhook</code></p>
 <h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
 <tr>
