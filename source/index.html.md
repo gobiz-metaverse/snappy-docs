@@ -533,8 +533,6 @@ This endpoint create an address into your business.
 
 ### HTTP Request
 
-`POST /snappy/businesses/address/create` **DEPRECATED**
-
 `POST /snappy/businesses/:business_id/addresses`
 
 ### Parameters
@@ -610,8 +608,6 @@ PUT /snappy/businesses/:business_id/addresses/:id?access_token=<access_token> HT
 This endpoint update an address into your business.
 
 ### HTTP Request
-
-`POST /snappy/businesses/address/update` **DEPRECATED**
 
 `PUT /snappy/businesses/:business_id/addresses/:id`
 
