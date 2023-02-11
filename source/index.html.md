@@ -34,7 +34,7 @@ We have language bindings in Http and you can view code examples in the dark are
 
 # Authentication
 
-The first you must have a snappy account by access [https://snappy.vn/register](https://snappy.vn/register) or login into our website via [https://snappy.vn/login](https://snappy.vn/login). After that, you can redirect to [https://snappy.vn/businesses](https://snappy.vn/businesses) to show all of your businesses. Then pick one of your favorite business. And finally, you can create Snappy's `access_token` and `callback URL` using for webhook from the API tab.
+The first you must have a snappy account by access [https://snappy.vn/register](https://snappy.vn/register) or login into our website via [https://snappy.vn/login](https://snappy.vn/login). After that, you can redirect to [https://snappy.vn/businesses](https://snappy.vn/businesses) to show all of your businesses. Then pick one specific business you want to connect api. And finally, you can manage Snappy's `access_token` and `callback URL` using for webhook from the API tab.
 
 Snappy expects for the `access_token` to be included in almost API requests to the server as a param that looks like the following:
 
