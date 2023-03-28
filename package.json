@@ -8,6 +8,7 @@
     "start": "NODE_ENV=production node server.js",
     "setup": "bundle exec middleman build --clean && git add . && git commit -m 'update docs' && git push && pm2 deploy ecosystem.config.js production setup",
     "deploy-start": "pm2 deploy ecosystem.config.js production run NODE_ENV=production pm2 startOrRestart ecosystem.config.js --env production",
+    "deploy_clean": "bundle exec middleman build --clean && pm2 deploy ecosystem.config.js production --force",
     "deploy": "bundle exec middleman build --clean && git add . && git commit -m 'update docs' && git push && pm2 deploy ecosystem.config.js production --force"
   },
   "keywords": [],
