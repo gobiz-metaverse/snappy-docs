@@ -145,7 +145,7 @@ Content-Type: application/json
 
 `POST /snappy/users/login/password`
 
-### Query Parameters
+### Parameters
 
 Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------
@@ -153,6 +153,67 @@ email | true | string | | Email of user
 phone_number | true | string | | Phone_number of user
 password | true | string | | Password of user
 affiliate_id | false | string | | affiliate_id of user
+
+## Get long term access token
+Use api [GET /snappy/users/me](#get-all-businesses) and choose business you want to connect api from list `businesses`.
+Or api [GET /snappy/businesses/:business_id](#get-a-specific-business).
+Then you can obtain a long-term access token with a 2-year expiration by using the `secret_key` field of the business.
+
+<aside class="notice">
+Note that only owner of business can get long-term access token.
+</aside>
+
+## Refresh long-term access token
+
+```http
+POST /snappy/businesses/:business_id?access_token=<access_token> HTTP/1.1
+Content-Type: application/json
+```
+
+> Sample params
+
+```json
+{
+    "reset_token": true
+}
+```
+
+> Response if success
+
+```json
+{
+    "business": {
+        "coupons": [...],
+        "id": 63,
+        "inserted_at": "2018-04-17T15:07:49",
+        "is_default": true,
+        "is_owner": true,
+        "last_payment_at": null,
+        "name": "SG1",
+        "owner_id": "14d4a1a1-ea42-4164-805d-e240f2561f71",
+        "owner_name": "SG1",
+        "payment_methods": [...],
+        "phone_number": "0937123123",
+        "remaining_balance": 0,
+        "total_balance": 0,
+        "tracking_count": 3,
+        "unique_name": "S61",
+        "updated_at": "2018-04-17T15:14:26",
+        "secret_key": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...", # New long-term access token
+    },
+    "success": true
+}
+```
+
+### HTTP Request
+
+`POST /snappy/businesses/:business_id`
+
+### Parameters
+
+Parameter | Required | Type    | Default | Description
+--------- | ------- | ------- | ------- | -----------
+reset_token | true | boolean | | true
 
 # Geos
 
@@ -250,7 +311,7 @@ This endpoint retrieves all districts of given province.
 
 `GET /geo/districts`
 
-### Query Parameters
+### Parameters
 
 Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------
@@ -303,7 +364,7 @@ This endpoint retrieves all communes of given district.
 
 `GET /geo/communes`
 
-### Query Parameters
+### Parameters
 
 Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------
@@ -363,7 +424,7 @@ This endpoint retrieves all businesses and basic user info.
 
 `GET /snappy/users/me`
 
-### Query Parameters
+### Parameters
 
 Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------
@@ -407,7 +468,7 @@ This endpoint retrieves a specific business.
 
 `GET /snappy/businesses/:business_id`
 
-### URL Parameters
+### Parameters
 
 Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------
@@ -611,7 +672,7 @@ This endpoint update an address into your business.
 
 `PUT /snappy/businesses/:business_id/addresses/:id`
 
-### URL Parameters
+### Parameters
 
 Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------
@@ -867,7 +928,7 @@ This endpoint retrieves all trackings into your business.
 
 `GET /snappy/trackings`
 
-### Query Parameters
+### Parameters
 
 Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------
@@ -1136,7 +1197,7 @@ This endpoint retrieves a tracking.
 
 `GET /snappy/trackings/:id`
 
-### URL Parameters
+### Parameters
 
 Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------
@@ -1395,7 +1456,7 @@ This endpoint create a tracking into your business.
 
 `POST /snappy/trackings/create`
 
-### Query Parameters
+### Parameters
 
 Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------
@@ -1517,7 +1578,7 @@ This endpoint calculate all cost of a tracking.
 
 `POST /snappy/trackings/cal_shipping_cost`
 
-### Query Parameters
+### Parameters
 
 Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------
@@ -1786,7 +1847,7 @@ This endpoint cancel a tracking into your business.
 
 `DELETE /snappy/trackings/cancel`
 
-### Query Parameters
+### Parameters
 
 Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------
@@ -2059,7 +2120,7 @@ This endpoint create an unique webhook callback url into your business.
 
 `POST /snappy/businesses/:business_id/webhook`
 
-### URL Parameters
+### Parameters
 
 Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------
@@ -2091,7 +2152,7 @@ This endpoint retrieves a specific webhook callback url into your specific busin
 
 `GET /snappy/businesses/:business_id/webhook`
 
-### URL Parameters
+### Parameters
 
 Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------
@@ -2122,7 +2183,7 @@ This endpoint retrieves a specific webhook callback url into your specific busin
 
 `PUT /snappy/businesses/:business_id/webhook`
 
-### URL Parameters
+### Parameters
 
 Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------
@@ -2335,7 +2396,7 @@ This endpoint create an request to Snappy when a tracking need modify informatio
 
 `POST /snappy/request`
 
-### URL Parameters
+### Parameters
 
 Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------
@@ -2513,7 +2574,7 @@ This endpoint retrieves a specific webhook callback url into your specific busin
 
 `GET /snappy/request`
 
-### URL Parameters
+### Parameters
 
 Parameter | Required | Type    | Default | Description
 --------- | ------- | ------- | ------- | -----------

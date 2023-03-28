@@ -330,6 +330,12 @@
                   <li>
                     <a href="#login" class="toc-h2 toc-link" data-title="Login">Login</a>
                   </li>
+                  <li>
+                    <a href="#get-long-term-access-token" class="toc-h2 toc-link" data-title="Get long term access token">Get long term access token</a>
+                  </li>
+                  <li>
+                    <a href="#refresh-long-term-access-token" class="toc-h2 toc-link" data-title="Refresh long-term access token">Refresh long-term access token</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -559,7 +565,7 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
 <p><code>POST /snappy/users/login/password</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<h3 id='parameters'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -596,6 +602,69 @@ You must replace <code>access_token</code> with your personal access_token.
 <td>string</td>
 <td></td>
 <td>affiliate_id of user</td>
+</tr>
+</tbody></table>
+<h2 id='get-long-term-access-token'>Get long term access token</h2>
+<p>Use api <a href="#get-all-businesses">GET /snappy/users/me</a> and choose business you want to connect api from list <code>businesses</code>.
+Or api <a href="#get-a-specific-business">GET /snappy/businesses/:business_id</a>.
+Then you can obtain a long-term access token with a 2-year expiration by using the <code>secret_key</code> field of the business.</p>
+
+<aside class="notice">
+Note that only owner of business can get long-term access token.
+</aside>
+<h2 id='refresh-long-term-access-token'>Refresh long-term access token</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/snappy/businesses/:business_id?access_token=&lt;access_token&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre></div>
+<blockquote>
+<p>Sample params</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"reset_token"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response if success</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"business"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"coupons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">63</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"inserted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-17T15:07:49"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"is_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"is_owner"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last_payment_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14d4a1a1-ea42-4164-805d-e240f2561f71"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"owner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"payment_methods"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
+        </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0937123123"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"remaining_balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total_balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"tracking_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"unique_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S61"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-17T15:14:26"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"secret_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."</span><span class="p">,</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">New</span><span class="w"> </span><span class="err">long-term</span><span class="w"> </span><span class="err">access</span><span class="w"> </span><span class="err">token</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST /snappy/businesses/:business_id</code></p>
+<h3 id='parameters-2'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>reset_token</td>
+<td>true</td>
+<td>boolean</td>
+<td></td>
+<td>true</td>
 </tr>
 </tbody></table>
 <h1 id='geos'>Geos</h1><h2 id='get-provinces'>Get Provinces</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/geo/provinces</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -635,7 +704,7 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all provinces.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET /geo/provinces</code></p>
 <h2 id='get-districts'>Get Districts</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/geo/districts</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre></div>
@@ -674,9 +743,9 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all districts of given province.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET /geo/districts</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='parameters-3'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -731,9 +800,9 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all communes of given district.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET /geo/communes</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
+<h3 id='parameters-4'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -793,9 +862,9 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all businesses and basic user info.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET /snappy/users/me</code></p>
-<h3 id='query-parameters-4'>Query Parameters</h3>
+<h3 id='parameters-5'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -841,9 +910,9 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves a specific business.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET /snappy/businesses/:business_id</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<h3 id='parameters-6'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -912,9 +981,9 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint create an address into your business.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET /snappy/businesses/:business_id/addresses</code></p>
-<h3 id='parameters'>Parameters</h3>
+<h3 id='parameters-7'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -989,9 +1058,9 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint create an address into your business.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>POST /snappy/businesses/:business_id/addresses</code></p>
-<h3 id='parameters-2'>Parameters</h3>
+<h3 id='parameters-8'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1117,9 +1186,9 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint update an address into your business.</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>PUT /snappy/businesses/:business_id/addresses/:id</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<h3 id='parameters-9'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1429,9 +1498,9 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all trackings into your business.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>GET /snappy/trackings</code></p>
-<h3 id='query-parameters-5'>Query Parameters</h3>
+<h3 id='parameters-10'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1756,9 +1825,9 @@ You must replace <code>access_token</code> with your personal access_token.
 
 </span></code></pre></div>
 <p>This endpoint retrieves a tracking.</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>GET /snappy/trackings/:id</code></p>
-<h3 id='url-parameters-3'>URL Parameters</h3>
+<h3 id='parameters-11'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2024,9 +2093,9 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint create a tracking into your business.</p>
-<h3 id='http-request-12'>HTTP Request</h3>
+<h3 id='http-request-13'>HTTP Request</h3>
 <p><code>POST /snappy/trackings/create</code></p>
-<h3 id='query-parameters-6'>Query Parameters</h3>
+<h3 id='parameters-12'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2365,9 +2434,9 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint calculate all cost of a tracking.</p>
-<h3 id='http-request-13'>HTTP Request</h3>
+<h3 id='http-request-14'>HTTP Request</h3>
 <p><code>POST /snappy/trackings/cal_shipping_cost</code></p>
-<h3 id='query-parameters-7'>Query Parameters</h3>
+<h3 id='parameters-13'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2691,9 +2760,9 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint cancel a tracking into your business.</p>
-<h3 id='http-request-14'>HTTP Request</h3>
+<h3 id='http-request-15'>HTTP Request</h3>
 <p><code>DELETE /snappy/trackings/cancel</code></p>
-<h3 id='query-parameters-8'>Query Parameters</h3>
+<h3 id='parameters-14'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3330,9 +3399,9 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint create an unique webhook callback url into your business.</p>
-<h3 id='http-request-15'>HTTP Request</h3>
+<h3 id='http-request-16'>HTTP Request</h3>
 <p><code>POST /snappy/businesses/:business_id/webhook</code></p>
-<h3 id='url-parameters-4'>URL Parameters</h3>
+<h3 id='parameters-15'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3378,9 +3447,9 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves a specific webhook callback url into your specific business.</p>
-<h3 id='http-request-16'>HTTP Request</h3>
+<h3 id='http-request-17'>HTTP Request</h3>
 <p><code>GET /snappy/businesses/:business_id/webhook</code></p>
-<h3 id='url-parameters-5'>URL Parameters</h3>
+<h3 id='parameters-16'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3419,9 +3488,9 @@ You must replace <code>access_token</code> with your personal access_token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves a specific webhook callback url into your specific business.</p>
-<h3 id='http-request-17'>HTTP Request</h3>
+<h3 id='http-request-18'>HTTP Request</h3>
 <p><code>PUT /snappy/businesses/:business_id/webhook</code></p>
-<h3 id='url-parameters-6'>URL Parameters</h3>
+<h3 id='parameters-17'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3727,9 +3796,9 @@ Please note that <code>changes</code> and <code>updates</code> is important to h
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint create an request to Snappy when a tracking need modify information, report abuse, etc..</p>
-<h3 id='http-request-18'>HTTP Request</h3>
+<h3 id='http-request-19'>HTTP Request</h3>
 <p><code>POST /snappy/request</code></p>
-<h3 id='url-parameters-7'>URL Parameters</h3>
+<h3 id='parameters-18'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3951,9 +4020,9 @@ Please note that <code>changes</code> and <code>updates</code> is important to h
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves a specific webhook callback url into your specific business.</p>
-<h3 id='http-request-19'>HTTP Request</h3>
+<h3 id='http-request-20'>HTTP Request</h3>
 <p><code>GET /snappy/request</code></p>
-<h3 id='url-parameters-8'>URL Parameters</h3>
+<h3 id='parameters-19'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
