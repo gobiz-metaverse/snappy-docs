@@ -28,7 +28,7 @@ module.exports = {
       ref: 'origin/master',
       repo: 'git@github.com:gobiz-metaverse/snappy-docs.git',
       path: '/home/ubuntu/snappy-docs',
-      'post-deploy': 'yarn install --ignore-engines && NODE_ENV=production yarn build && pm2 startOrRestart ecosystem.config.js --env production',
+      'post-deploy': 'yarn install --ignore-engines && NODE_ENV=production yarn && pm2 startOrRestart ecosystem.config.js --env production',
     },
   },
 };
