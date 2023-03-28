@@ -23,13 +23,12 @@ module.exports = {
    */
   deploy: {
     production: {
-      user: 'cc',
-      host: ['10.1.12.120'],
+      user: 'ubuntu',
+      host: ['18.143.136.217'],
       ref: 'origin/master',
-      repo: 'git@github.com:sonhgc00016/slate.git',
-      path: '/home/cc/snappy-docs',
-      'post-deploy':
-        'export PATH=$PATH:/home/v2/.nvm/versions/node/v10.15.1/bin && yarn && pm2 startOrRestart ecosystem.config.js --env production',
+      repo: 'git@github.com:gobiz-metaverse/snappy-docs.git',
+      path: '/home/ubuntu/snappy-docs',
+      'post-deploy': 'yarn install --ignore-engines && NODE_ENV=production yarn build && pm2 startOrRestart ecosystem.config.js --env production',
     },
   },
 };
