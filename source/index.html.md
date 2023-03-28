@@ -170,6 +170,10 @@ POST /snappy/businesses/:business_id?access_token=<access_token> HTTP/1.1
 Content-Type: application/json
 ```
 
+<aside class="notice">
+Note that only owner of business can refresh long-term access token.
+</aside>
+
 > Sample params
 
 ```json
