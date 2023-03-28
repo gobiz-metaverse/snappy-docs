@@ -80,3 +80,12 @@ Thanks to the following people who have submitted major pull requests:
 - [@cvkef](https://github.com/cvkef)
 
 Also, thanks to [Sauce Labs](http://saucelabs.com) for sponsoring the development of the responsive styles.
+
+# snappy-docs
+
+Project must be deploy with `yarn`, `pm2` and `node` version `v14.18.0` or lower. Please setup your environment both local and remote server before deploy.
+
+## Deployment
+  - Init project on server if donot have folder snappy-mgt-web on server: `yarn setup`
+  - Deploy project: `yarn deploy`
+  - Start service (use when hard service crash or donot want to build project again): `yarn deploy-start`
