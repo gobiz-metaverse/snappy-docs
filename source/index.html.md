@@ -30,7 +30,7 @@ We have language bindings in Http and you can view code examples in the dark are
 
 ## Environment
 
-* Production base url: **https://pos.pages.fm/api/v1**
+* Production base url: **https://api.snappy.vn/api/v1**
 
 # Authentication
 
